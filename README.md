@@ -11,11 +11,11 @@ Try it now and see the difference it can make in your workflow!
 ## Installation and usage
 
 ```bash
-  npm install bettercolors
+npm install bettercolors
 
-  Or if you are a person in the next generation 
+Or if you are a person in the next generation 
   
-  pnpm install bettercolors
+pnpm install bettercolors
 ```
 
 Import the class
@@ -45,7 +45,33 @@ const colors = new BColors({
 And log your bigdata
 
 ```TS
-colors.success("Successfully loaded commands");
+import { ConsoleForground } from "bettercolors";
+
+export class MyBot {
+
+  public start(): void {
+    console.log(`${ConsoleForground.Green}Hello world!`);
+  }
+
+  public stop(): void {
+    console.log(`${ConsoleForground.Red}Goodbye world!`);
+  }
+
+}
+
+const bot = new MyBot();
+
+bot.start();
+bot.stop();
+```
+
+Result: 
+![Image](https://cdn.discordapp.com/attachments/732392873667854372/1093844125322846238/image.png)
+
+Or if you make your own message
+
+```TS
+import { BColors } from "bettercolors";
 ```
 
 #### Result:
@@ -55,11 +81,11 @@ colors.success("Successfully loaded commands");
 To run tests, run the following command, with Vitest
 
 ```bash
-  npm run test:unit
+npm run test:unit
   
-  Or if you are a person in the next generation 
+Or if you are a person in the next generation 
   
-  pnpm run test:unit
+pnpm run test:unit
 ```
 
 ### Result (desired 😅):

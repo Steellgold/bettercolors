@@ -11,76 +11,218 @@ const defaultConfiguration: Configuration = {
   }
 };
 
-describe("Date format", () => {
-  it("should date format with []", () => {
+const configurationDateParenthesis: Configuration = {
+  date: { enabled: true, surrounded: "()", format: "DD/MM/YYYY HH:mm:ss" }
+};
+
+const configurationCompare: Configuration = {
+  date: { enabled: true, surrounded: "<>", format: "DD/MM/YYYY HH:mm:ss" }
+};
+
+const configurationAccolade: Configuration = {
+  date: { enabled: true, surrounded: "{}", format: "DD/MM/YYYY HH:mm:ss" }
+};
+
+describe("[] date format", () => {
+  it("should date format with [] green", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
     expect(
-      format("Hello World", defaultConfiguration, "green")
-    ).toBe(`\x1b[30m[${now}] \x1b[32mHello World\x1b[30m`);
+      format("test", defaultConfiguration, "success")
+    ).toBe(`\x1b[30m[${now}] \x1b[32mtest\x1b[32m`);
   });
 
-  it("should date format with ()", () => {
+  it("should date format with [] red", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
     expect(
-      format("Hello World", { ...defaultConfiguration, date: { ...defaultConfiguration.date, surrounded: "()" } }, "green")
-    ).toBe(`\x1b[30m(${now}) \x1b[32mHello World\x1b[30m`);
+      format("test", defaultConfiguration, "error")
+    ).toBe(`\x1b[30m[${now}] \x1b[31mtest\x1b[31m`);
   });
 
-  it("should date format with {}", () => {
+  it("should date format with [] yellow", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
     expect(
-      format("Hello World", { ...defaultConfiguration, date: { ...defaultConfiguration.date, surrounded: "{}" } }, "green")
-    ).toBe(`\x1b[30m{${now}} \x1b[32mHello World\x1b[30m`);
+      format("test", defaultConfiguration, "warn")
+    ).toBe(`\x1b[30m[${now}] \x1b[33mtest\x1b[33m`);
   });
 
-  it("should date format with <>", () => {
+  it("should date format with [] blue", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
     expect(
-      format("Hello World", { ...defaultConfiguration, date: { ...defaultConfiguration.date, surrounded: "<>" } }, "green")
-    ).toBe(`\x1b[30m<${now}> \x1b[32mHello World\x1b[30m`);
+      format("test", defaultConfiguration, "info")
+    ).toBe(`\x1b[30m[${now}] \x1b[34mtest\x1b[34m`);
   });
 
-  it("should date format with none", () => {
+  it("should date format with [] magenta", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
     expect(
-      format("Hello World", { ...defaultConfiguration, date: { ...defaultConfiguration.date, surrounded: "none" } }, "green")
-    ).toBe(`\x1b[30m${now} \x1b[32mHello World\x1b[30m`);
+      format("test", defaultConfiguration, "debug")
+    ).toBe(`\x1b[30m[${now}] \x1b[35mtest\x1b[35m`);
+  });
+
+  it("should date format with [] cyan", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", defaultConfiguration, "log")
+    ).toBe(`\x1b[30m[${now}] \x1b[36mtest\x1b[36m`);
+  });
+
+  it("should date format with [] white", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", defaultConfiguration, "default")
+    ).toBe(`\x1b[30m[${now}] \x1b[37mtest\x1b[37m`);
   });
 });
 
-describe("Format", () => {
-  it("should format correctly green", () => {
+describe("() date format", () => {
+  it("should date format with () green", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "green")).toBe(`\x1b[30m[${now}] \x1b[32mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "success")
+    ).toBe(`\x1b[30m(${now}) \x1b[32mtest\x1b[32m`);
   });
 
-  it("should format correctly red", () => {
+  it("should date format with () red", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "red")).toBe(`\x1b[30m[${now}] \x1b[31mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "error")
+    ).toBe(`\x1b[30m(${now}) \x1b[31mtest\x1b[31m`);
   });
 
-  it("should format correctly yellow", () => {
+  it("should date format with () yellow", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "yellow")).toBe(`\x1b[30m[${now}] \x1b[33mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "warn")
+    ).toBe(`\x1b[30m(${now}) \x1b[33mtest\x1b[33m`);
   });
 
-  it("should format correctly blue", () => {
+  it("should date format with () blue", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "blue")).toBe(`\x1b[30m[${now}] \x1b[34mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "info")
+    ).toBe(`\x1b[30m(${now}) \x1b[34mtest\x1b[34m`);
   });
 
-  it("should format correctly magenta", () => {
+  it("should date format with () magenta", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "magenta")).toBe(`\x1b[30m[${now}] \x1b[35mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "debug")
+    ).toBe(`\x1b[30m(${now}) \x1b[35mtest\x1b[35m`);
   });
 
-  it("should format correctly cyan", () => {
+  it("should date format with () cyan", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "cyan")).toBe(`\x1b[30m[${now}] \x1b[36mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "log")
+    ).toBe(`\x1b[30m(${now}) \x1b[36mtest\x1b[36m`);
   });
 
-  it("should format correctly gray", () => {
+  it("should date format with () white", () => {
     const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
-    expect(format("Hello World", defaultConfiguration, "gray")).toBe(`\x1b[30m[${now}] \x1b[30mHello World\x1b[30m`);
+    expect(
+      format("test", configurationDateParenthesis, "default")
+    ).toBe(`\x1b[30m(${now}) \x1b[37mtest\x1b[37m`);
+  });
+});
+
+describe("<> date format", () => {
+  it("should date format with <> green", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "success")
+    ).toBe(`\x1b[30m<${now}> \x1b[32mtest\x1b[32m`);
+  });
+
+  it("should date format with <> red", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "error")
+    ).toBe(`\x1b[30m<${now}> \x1b[31mtest\x1b[31m`);
+  });
+
+  it("should date format with <> yellow", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "warn")
+    ).toBe(`\x1b[30m<${now}> \x1b[33mtest\x1b[33m`);
+  });
+
+  it("should date format with <> blue", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "info")
+    ).toBe(`\x1b[30m<${now}> \x1b[34mtest\x1b[34m`);
+  });
+
+  it("should date format with <> magenta", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "debug")
+    ).toBe(`\x1b[30m<${now}> \x1b[35mtest\x1b[35m`);
+  });
+
+  it("should date format with <> cyan", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "log")
+    ).toBe(`\x1b[30m<${now}> \x1b[36mtest\x1b[36m`);
+  });
+
+  it("should date format with <> white", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationCompare, "default")
+    ).toBe(`\x1b[30m<${now}> \x1b[37mtest\x1b[37m`);
+  });
+});
+
+describe("{} date format", () => {
+  it("should date format with {} green", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "success")
+    ).toBe(`\x1b[30m{${now}} \x1b[32mtest\x1b[32m`);
+  });
+
+  it("should date format with {} red", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "error")
+    ).toBe(`\x1b[30m{${now}} \x1b[31mtest\x1b[31m`);
+  });
+
+  it("should date format with {} yellow", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "warn")
+    ).toBe(`\x1b[30m{${now}} \x1b[33mtest\x1b[33m`);
+  });
+
+  it("should date format with {} blue", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "info")
+    ).toBe(`\x1b[30m{${now}} \x1b[34mtest\x1b[34m`);
+  });
+
+  it("should date format with {} magenta", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "debug")
+    ).toBe(`\x1b[30m{${now}} \x1b[35mtest\x1b[35m`);
+  });
+
+  it("should date format with {} cyan", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "log")
+    ).toBe(`\x1b[30m{${now}} \x1b[36mtest\x1b[36m`);
+  });
+
+  it("should date format with {} white", () => {
+    const now = DayJS().format("DD/MM/YYYY HH:mm:ss");
+    expect(
+      format("test", configurationAccolade, "default")
+    ).toBe(`\x1b[30m{${now}} \x1b[37mtest\x1b[37m`);
   });
 });

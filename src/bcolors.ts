@@ -16,27 +16,27 @@ export class BColors {
   }
 
   public success(message: string): void {
-    console.log(format(message, this.config, "green"));
+    console.log(format(message, this.config, "success"));
   }
 
   public error(message: string): void {
-    console.log(format(message, this.config, "red"));
+    console.log(format(message, this.config, "error"));
   }
 
   public warning(message: string): void {
-    console.log(format(message, this.config, "yellow"));
+    console.log(format(message, this.config, "warn"));
   }
 
   public info(message: string): void {
-    console.log(format(message, this.config, "blue"));
+    console.log(format(message, this.config, "info"));
   }
 
   public debug(message: string): void {
-    console.log(format(message, this.config, "magenta"));
+    console.log(format(message, this.config, "debug"));
   }
 
   public log(message: string): void {
-    console.log(format(message, this.config, "cyan"));
+    console.log(format(message, this.config, "log"));
   }
 
 }
