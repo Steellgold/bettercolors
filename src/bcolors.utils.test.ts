@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { format } from "./bcolors.utils";
-import DayJS from "dayjs";
 import { Configuration } from "./bcolors.types";
+import DayJS from "dayjs"; // Bouuh not next-gen
 
 const defaultConfiguration: Configuration = {
   date: {

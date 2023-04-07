@@ -21,7 +21,7 @@
     "node_modules/*",
     "build/*",
     "types/*",
-    "config.ts",
+    "config.ts"
   ],
   
 }

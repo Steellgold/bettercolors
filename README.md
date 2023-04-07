@@ -1,11 +1,11 @@
 
-# Colors
+# BetterColors
 
-Colors is an NPM package that adds color to your logs in the console. 
+BetterColors is an NPM package that adds color to your logs in the console. 
 
-With Colors, you can easily customize the color of your error, success or information messages, for a more pleasant console experience. 
+With BetterColors, you can easily customize the color of your error, success or information messages, for a more pleasant console experience. 
 
-Whether you are a beginner developer or an experienced professional, Colors will help you make your logs clearer and easier to read. 
+Whether you are a beginner developer or an experienced professional, BetterColors will help you make your logs clearer and easier to read. 
 
 Try it now and see the difference it can make in your workflow!
 ## Installation and usage
@@ -45,16 +45,16 @@ const colors = new BColors({
 And log your bigdata
 
 ```TS
-import { ConsoleForground } from "bettercolors";
+import { Green, Red } from "bettercolors";
 
 export class MyBot {
 
   public start(): void {
-    console.log(`${ConsoleForground.Green}Hello world!`);
+    console.log(`${Green}Hello world!`);
   }
 
   public stop(): void {
-    console.log(`${ConsoleForground.Red}Goodbye world!`);
+    console.log(`${Red}Goodbye world!`);
   }
 
 }

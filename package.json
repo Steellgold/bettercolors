@@ -1,6 +1,6 @@
 {
   "name": "bettercolors",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "An alternative library to colors/chalk to use colors in projects",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -11,7 +11,6 @@
   "scripts": {
     "build": "tsc",
     "test:unit": "vitest --ui",
-    "test:client": "node --watch -r @swc-node/register ./test/client.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
