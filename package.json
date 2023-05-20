@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "types": "tsc --declaration --allowJs --emitDeclarationOnly --outDir types",
     "test:unit": "vitest --ui",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -29,5 +30,8 @@
     "eslint": "^8.36.0",
     "typescript": "^5.0.2",
     "vitest": "^0.29.8"
+  },
+  "eslintConfig": {
+    "extends": "bluzzi/eslint-config"
   }
 }
