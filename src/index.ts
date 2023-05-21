@@ -1,5 +1,6 @@
 export { BColors } from "./bcolors";
-export { format } from "./bcolors.utils";
+export { format, rainbow } from "./bcolors.utils";
+export { hexToConsoleColor } from "./utils/replace";
 export {
   BgBlue, BgCyan, BgGray, BgGreen, BgMagenta,
   BgRed, BgWhite, BgYellow, Blink, Blue,
