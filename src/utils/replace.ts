@@ -1,6 +1,3 @@
-export const replaceAll = (message: string, str: string[], replace: string[]) : string => {
-  for (let i = 0; i < str.length; i++) {
-    message = message.replace(str[i], replace[i]);
-  }
-  return message;
+export const replaceMultiple = (str: string, replacements: { search: string; replace: string }[]): string => {
+  return replacements.reduce((acc, { search, replace }) => acc.replace(new RegExp(search, 'g'), replace), str);
 }

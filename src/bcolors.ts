@@ -1,22 +1,12 @@
 import { Configuration } from "./bcolors.types";
 import { format } from "./bcolors.utils";
-import { DayJS } from "./utils/day-js";
 
 export class BColors {
 
   private config: Configuration;
 
   constructor(config?: Configuration) {
-    this.config = config || {
-      messagePatterns: {
-        success: "{date} {typeMaj} {message}"
-      },
-      date: {
-        surrounded: "[]",
-        format: "DD/MM/YYYY HH:mm:ss",
-        timezone: "America/Denver"
-      }
-    };
+    this.config = config || {};
   }
 
   public success(message: string): void {
