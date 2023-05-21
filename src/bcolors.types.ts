@@ -1,3 +1,5 @@
+import { hexToConsoleColor } from "./utils/replace";
+
 export const Reset = "\x1b[0m";
 export const Bold = "\x1b[1m";
 export const Thin = "\x1b[2m";
@@ -24,7 +26,7 @@ export const BgMagenta = "\x1b[45m";
 export const BgCyan = "\x1b[46m";
 export const BgWhite = "\x1b[47m";
 
-export type Types = "success" | "error" | "info" | "debug" | "log" | "warn" | "default";
+export type Types = "success" | "error" | "info" | "debug" | "log" | "warn" | "rainbow" | "default";
 
 export type timeZones = "Africa/Cairo" |
   "Africa/Casablanca" |
@@ -363,6 +365,40 @@ export type timeZones = "Africa/Cairo" |
   "Pacific/Tongatapu" |
   "PST8PDT";
 
+export const rainbowColors = [
+  hexToConsoleColor("#FF0000"),
+  hexToConsoleColor("#FF7F00"),
+  hexToConsoleColor("#FFFF00"),
+  hexToConsoleColor("#00FF00"),
+  hexToConsoleColor("#0000FF"),
+  hexToConsoleColor("#4B0082"),
+  hexToConsoleColor("#9400D3"),
+  hexToConsoleColor("#FF1493"),
+  hexToConsoleColor("#FF4500"),
+  hexToConsoleColor("#FFD700"),
+  hexToConsoleColor("#ADFF2F"),
+  hexToConsoleColor("#00FFFF"),
+  hexToConsoleColor("#1E90FF"),
+  hexToConsoleColor("#8A2BE2"),
+  hexToConsoleColor("#FF69B4"),
+  hexToConsoleColor("#FF8C00"),
+  hexToConsoleColor("#DC143C"),
+  hexToConsoleColor("#7FFF00"),
+  hexToConsoleColor("#00BFFF"),
+  hexToConsoleColor("#8B008B"),
+  hexToConsoleColor("#FF00FF"),
+  hexToConsoleColor("#FFA500"),
+  hexToConsoleColor("#32CD32"),
+  hexToConsoleColor("#FFC0CB"),
+  hexToConsoleColor("#FF6347"),
+  hexToConsoleColor("#7CFC00"),
+  hexToConsoleColor("#00CED1"),
+  hexToConsoleColor("#800080"),
+  hexToConsoleColor("#FF00FF"),
+  hexToConsoleColor("#FF8C69"),
+  hexToConsoleColor("#7B68EE")
+  ];
+
 export type Configuration = {
   messagePatterns?: {
     success?: string;
@@ -371,6 +407,7 @@ export type Configuration = {
     info?: string;
     debug?: string;
     log?: string;
+    rainbow?: string;
     default?: string;
   };
   customParams?: {
