@@ -1,11 +1,18 @@
 import { Blue, Configuration, Cyan, Gray, Green, Magenta, Red, Reset, Types, White, Yellow } from "./bcolors.types";
-import DayJS from "dayjs"; // Bouuh not next-gen
+import { DayJS } from "./utils/day-js"; // That's is next-gen
 
 export const format = (message: string, config: Configuration, type: Types): string => {
-  const date = DayJS().format(config.date.format);
-  const dateSurrounded = config.date.surrounded === "none" ? date : `${config.date.surrounded[0]}${date}${config.date.surrounded[1]}`;
-  const dateFormatted = config.date.enabled ? dateSurrounded : "";
-  return `${Gray}${dateFormatted} ${getColorByType(type)}${message}${getColorByType(type)}${Reset}`;
+  let surrounded = config.date?.surrounded;
+  let format = config.date?.format || "DD/MM/YYYY HH:mm:ss";
+  let timezone = config.date?.timezone;
+
+  let left = surrounded?.split("")[0] || "";
+  let right = surrounded?.split("")[1] || "";
+
+  let date = DayJS().format(format);
+  if (timezone) date = DayJS().tz(timezone).format(format);
+
+  return `${Gray}${left}${date}${right} ${getColorByType(type)}${message}${Reset}`;
 };
 
 export const getColorByType = (type: Types): string => {
