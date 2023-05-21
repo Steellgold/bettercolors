@@ -1,5 +1,5 @@
-import { Configuration } from "./bcolors.types";
-import { format } from "./bcolors.utils";
+import { Configuration, rainbowColors } from "./bcolors.types";
+import { format, rainbow } from "./bcolors.utils";
 
 export class BColors {
 
@@ -31,6 +31,10 @@ export class BColors {
 
   public log(message: string): void {
     console.log(format(message, this.config, "log"));
+  }
+
+  public rainbow(message: string, colors?: string[]): void {
+    console.log(format(message, this.config, "rainbow", false) + rainbow(message, colors == null ?  rainbowColors : colors));
   }
 
 }
