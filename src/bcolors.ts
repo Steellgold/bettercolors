@@ -1,5 +1,6 @@
 import { Configuration } from "./bcolors.types";
 import { format } from "./bcolors.utils";
+import { DayJS } from "./utils/day-js";
 
 export class BColors {
 
@@ -7,10 +8,13 @@ export class BColors {
 
   constructor(config?: Configuration) {
     this.config = config || {
+      messagePatterns: {
+        success: "{date} {typeMaj} {message}"
+      },
       date: {
-        enabled: true,
         surrounded: "[]",
-        format: "DD/MM/YYYY HH:mm:ss"
+        format: "DD/MM/YYYY HH:mm:ss",
+        timezone: "America/Denver"
       }
     };
   }
