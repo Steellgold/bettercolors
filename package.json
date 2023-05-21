@@ -1,6 +1,6 @@
 {
   "name": "bettercolors",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An alternative library to colors/chalk to use colors in projects",
   "main": "build/index.js",
   "types": "build/index.d.ts",

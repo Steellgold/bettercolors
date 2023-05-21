@@ -36,6 +36,14 @@ The above code demonstrates the basic usage of the **BetterColors** package. Eac
 You can provide a configuration object to the `BColors` constructor to customize the package behavior. The configuration object can include the following properties:
 
 - `messagePatterns`: An object that allows you to customize the message patterns for different types. You can specify custom patterns for success, error, warn, info, debug, log, rainbow, and default types.
+  
+  - Params:
+    - `{message}`: The message to be displayed.
+    - `{date}`: The date of the message.
+    - `{dated}`: The date of the message with the surrounding characters.
+    - `{type}`: The type of the message.
+    - `{typeMaj}`: The type of the message in uppercase.
+    - `{typeMin}`: The type of the message in lowercase.
 
 - `customParams`: An object that allows you to define custom parameters for your messages. You can provide any key-value pairs as custom parameters.
 
